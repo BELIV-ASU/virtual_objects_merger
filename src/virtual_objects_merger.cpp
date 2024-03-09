@@ -99,7 +99,7 @@ void VirtualObjectsMerger::onTimer()
   }
 
 	DetectedObjects output_objects;
-  //output_objects.header.stamp = rclcpp::Clock().now();
+  output_objects.header = objects_data_.at(0)->header;
   output_objects.header.frame_id = new_frame_id;
 
   for (int i = 0; i < objects_data_.size(); i++) 
@@ -111,9 +111,6 @@ void VirtualObjectsMerger::onTimer()
     output_objects.objects.insert(
       output_objects.objects.end(), std::begin(transformed_objects.objects),
       std::end(transformed_objects.objects));
-
-		//Set time	
-		output_objects.header = objects_data_.at(i)->header;
 
 	}
   

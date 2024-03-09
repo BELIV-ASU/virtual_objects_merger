@@ -57,7 +57,7 @@ private:
     autoware_auto_perception_msgs::msg::DetectedObjects::ConstSharedPtr,
     const std::string&  
   );
-
+  
   // Core
   size_t input_topic_size;
 };
